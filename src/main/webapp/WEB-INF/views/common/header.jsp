@@ -11,14 +11,45 @@
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <!-- 헤더 CSS -->
 <link href="../../../resources/css/header.css" rel="stylesheet">
+<link href="../../../resources/css/header-m.css" rel="stylesheet">
 <header>
     <div class="header-menu">
         <div id="profilePic"><img src="../../../resources/img/common/돼끼.png"></div>
         <div class="logo-position"><a href="/"><img src="../../../resources/img/common/logo.png"></a></div>
         <div class="login-box">
-            <span class="material-symbols-outlined">person_add</span>
-            <span class="material-symbols-outlined">login</span>
+            <span class="material-symbols-outlined"><a href="/joinStep1.do">person_add</a></span>
+            <span class="material-symbols-outlined login-btn">login</span>
             <span class="material-symbols-outlined">bookmark_add</span>
         </div>
     </div>
 </header>
+<div class="modal-background">
+    <div class="login-modal">
+        <div class="modal-title">
+            <img src="/resources/img/common/logo.png">
+            <span class="material-symbols-outlined close-btn">close</span>
+        </div>
+        <form action="/login.do" method="post">
+            <input type="text" name="userId" class="form-control" placeholder="아이디">
+            <input type="password" name="userPw" class="form-control" placeholder="비밀번호">
+            <input type="submit" class="btn btn-outline-primary" value="LOGIN">
+        </form>
+    </div>
+</div>
+<div class="navi-menu">
+    <div class="navi-profile">
+        <div id="profilePic"><img src="../../../resources/img/common/돼끼.png"></div>
+        <span id="profileName">이름</span>
+        <span class="material-symbols-outlined naviClose-btn">undo</span>
+    </div>
+    <div class="navi-button d-grid gap-2">
+        <button class="btn btn-outline-primary">프로필 수정</button>
+    </div>
+    <ul class="navi-list">
+        <li><a href="#">북마크 등록</a></li>
+        <li><a href="#">내 북마크 리스트 관리</a></li>
+        <li><a href="#">북마크 리스트 검색</a></li>
+        <li><a href="#">로그아웃</a></li>
+    </ul>
+</div>
+<script src="/resources/js/header.js"></script>

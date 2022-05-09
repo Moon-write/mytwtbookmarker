@@ -1,0 +1,73 @@
+/*모바일 보기*/
+
+@media screen and (hover: hover) and (pointer: coarse) { /*모바일*/
+    .title{
+        font-size: 5em;
+    }
+    .header-menu{
+        height: 150px;
+    }
+    .header-menu span{
+        font-size: 3.5em;
+    }
+    .login-modal{
+        width: 80vw;
+        padding: 8vw;
+        background-color: white;
+        border-radius: 50px;
+    }
+    .modal-title>img{
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    .modal-title>span{
+        font-size: 3em;
+    }
+    .login-modal input{
+        font-size: 2.5em;
+        height: 80px;
+        margin-bottom: 30px;
+    }
+    .login-modal input[type=submit]{
+        width: 100%;
+        margin-top: 20px;
+        font-size: 2em;
+    }
+
+    .navi-menu{
+        width: 90%;
+    }
+    .navi-profile{
+        padding: 5% 10% ;
+    }
+    .navi-profile #profilePic{
+        width: 100px; height: 100px;
+    }
+    .navi-profile>#profileName{
+        width: 80%;
+        padding-left: 50px;
+        text-align: left;
+        font-size: 3em;
+    }
+    .naviClose-btn{
+        font-size: 4em;
+    }
+    .navi-button{
+        padding: 0% 10% 2% 10%;
+    }
+    .navi-button>button{
+        font-size: 3em;
+        height: 100px;
+    }
+    ul.navi-list>li>a{
+        display: block;
+        text-decoration: none;
+        color: #0f1419;
+        height: 100px;
+        line-height: 100px;
+        padding-left: 10%;
+        font-size: 2.5em;
+        margin-top: 3%;
+    }
+    
+}
