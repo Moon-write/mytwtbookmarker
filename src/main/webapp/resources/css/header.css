@@ -16,7 +16,6 @@ content{
 .title{
     text-align: center;
     font-weight: 900;
-    color: white;
     margin-bottom: 5vh;
 }
 
@@ -24,6 +23,10 @@ content{
     min-width: 500px;
     max-width: 1080px;
     margin: 0 auto;
+}
+
+.div1-box{
+	padding: 100px;
 }
 
 .header-menu{

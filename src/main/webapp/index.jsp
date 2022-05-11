@@ -12,7 +12,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <content>
         <div class="div-content">
-            <div class="quick-insert">
+            <div class="div1-box quick-insert">
                 <div class="title">빠른 북마크 등록</div>
                 <div class="insert-box">
                     <select class="form-select">
