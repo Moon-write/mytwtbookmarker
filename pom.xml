@@ -82,6 +82,7 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		
 
 		<!-- @Inject -->
 		<dependency>
@@ -190,7 +191,11 @@
             <artifactId>spring-context-support</artifactId>
             <version>4.1.6.RELEASE</version>
 		</dependency>
-
+		<dependency>
+		  <groupId>com.squareup.okhttp3</groupId>
+		  <artifactId>okhttp</artifactId>
+		  <version>3.10.0</version>
+		</dependency>
 
 		
 

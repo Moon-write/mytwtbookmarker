@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>My Twitter BookMarker</title>
 <link href="../../../resources/css/index.css" rel="stylesheet">
+<script type='text/javascript' src='http://code.jquery.com/jquery-3.6.0.js'></script>
 </head>
 <body>    
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -24,10 +25,17 @@
                     <input type="text" class="form-control" name="markLink" placeholder="트위터 링크를 입력하세요!">
                 </div>
                 <div class="preview-twt">
-                    <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="content-wrap">
+                        <div class="content-id">
+                        </div>
+                        <div class="content-text">
+                        </div>
+                        <div class="content-date">
+                        </div>
+                    </div>
+                    <div class="media-wrap">
+                    </div>
+                    <span class="material-symbols-outlined videoBadge" style="font-size:50px;"></span>
                 </div>
                 <div class="insert-button d-grid gap-2">
                     <input type="submit" class="btn btn-outline-light" value="북마크 등록">

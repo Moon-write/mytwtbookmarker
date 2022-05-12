@@ -10,4 +10,6 @@ public class BookmarkService {
 
 	@Autowired
 	private BookmarkDao dao;
+	
+	
 }

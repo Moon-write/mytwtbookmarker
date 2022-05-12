@@ -41,10 +41,28 @@
 		margin-right: 1%;
 	}
 	#sendBtn, #verifyBtn {
-		width: 20%;
-		
+		width: 20%;		
 	}
-	
+	.pic-wrap{
+		display: flex;
+		margin-top: 1vh;
+		align-items: center;
+	}
+	.profilePicWindow{
+		width: 100px;
+		height: 100px;
+		margin-top: 1vh;
+		display: none;
+	}
+	.profilePicWindow>img{
+		width: 100%; height: 100%;
+		object-fit: cover;
+	}
+	#fileBtn{
+		width: 100px; height: 100px;
+		background-color: #FF0000;
+	}
+
 	@media (hover: hover) and (pointer: fine) { 
 		input[type=submit]{
 			width: 60%;
@@ -112,9 +130,11 @@
            				
            				
            				
-           				프로필사진
-           				<input type="file" name="profilePic">
-           				<div class="profilePicWindow">여기사진이뜰거임</div>
+						<label for="profilePic">프로필 사진</label>
+						<label for="labelUpload"><div class="btn btn-sm btn-primary">업로드</div></label>
+						<div class="btn btn-sm btn-secondary" onclick="cancelImg(); return false;">취소</div>
+						<input type="file" id="labelUpload" onchange="loadImg(this); return false;" accept=".jpg,.png,.jpeg" style="display: none;">
+						<div class="profilePicWindow"><img id="img-view"></div>
                 	</form>
 
                 </div>
@@ -276,6 +296,27 @@
     			$("#timeChk").css("color","#1DD816");
     		}
     	};
+		function loadImg(f){
+			if(f.files.length!=0 && f.files[0]!=0){ 
+				// 파일이 있고, 배열 0번이 정상적인 파일이면(0이 아니면)
+				const reader = new FileReader();
+				reader.readAsDataURL(f.files[0]); // 선택한 파일의 경로를 가져온다
+
+				// 읽기가 완료되면 onload이벤트 발생 > 위의 이벤트가 로드 다되면 실행
+				reader.onload = function(e){
+				$(".profilePicWindow").css("display","block");
+				$("#img-view").attr("src",e.target.result); // src태그에 로드 된 파일경로(e)의 targetresult를 지정
+				}
+			} else {
+				$("#img-view").attr("src",""); // 이미지가 없어졌으면 경로비우기
+				$(".profilePicWindow").css("display","none");
+			}
+		}
+		function cancelImg(){
+			$("#labelUpload").replaceWith( $("#labelUpload").clone(true) );
+			$("#img-view").attr("src","");
+			$(".profilePicWindow").css("display","none");
+		}
     </script>
 </body>
 </html>
