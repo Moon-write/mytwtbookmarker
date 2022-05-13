@@ -29,7 +29,7 @@ public class TweetService {
 				  .build();*/
 				HttpUrl mySearchUrl = new HttpUrl.Builder().scheme("https").host("api.twitter.com").addPathSegment("2").addPathSegment("tweets")
 						.addQueryParameter("ids", ids)
-						.addQueryParameter("tweet.fields", "id,text,created_at")
+						.addQueryParameter("tweet.fields", "id,text,created_at,referenced_tweets")
 						.addQueryParameter("expansions", "attachments.media_keys")
 						.addQueryParameter("media.fields", "media_key,preview_image_url,type,url")
 						.build();

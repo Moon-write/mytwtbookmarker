@@ -8,7 +8,73 @@
     flex-wrap: wrap;
     margin-bottom: 50px ;
 }
+.preview-twt{
+    display: none;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #fff;
+    color: black;
+    padding: 25px;
+    width: 90%; height: 290px;
+    margin: 0 auto;
+    position: relative;
+}
+.content-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+    max-width: 60%;
+}
+.content-id{
+    font-weight: 900;
+    font-size: 1.1em;
+}
+.content-text{
+    font-size: 1em;
+    text-overflow: ellipsis;
+    overflow: auto;
+}
+.content-date{
+    font-size: 0.8em;
+    color: lightslategrey
+}
+.media-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
 
+.pic-two>img{
+    width: 49%;
+}
+.pic-three>img{
+    width: 33%;
+}
+.pic-four>img{
+    width: 49%;
+    height: 118px;
+}
+
+.videoBadge{
+    z-index: 1;
+    position: absolute;
+    top: 40px; right: 40px;
+    color: white;
+}
+.mediaBox{ /*이미지임*/
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gotolink{
+    margin-left: 20px;
+    color: #1d9bf0;
+    text-decoration: none;
+}
 
 /*웹 보기*/
 @media (hover: hover) and (pointer: fine) { 
@@ -22,7 +88,7 @@
         margin-left: 1%;
     }    
     .insert-button input[type=submit] {
-        margin-top: 3vh;
+        margin-top: 50px;
         height: 60px;
     }
 

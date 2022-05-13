@@ -197,6 +197,13 @@
 		  <version>3.10.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver --> <!-- 트랜잭션 사용시 활용 -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.6</version>
+		    <scope>runtime</scope>
+		</dependency>
 		
 
 	      

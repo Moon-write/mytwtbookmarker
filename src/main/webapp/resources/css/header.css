@@ -29,14 +29,11 @@ content{
 	padding: 100px;
 }
 
-.header-menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+.header-menu{    
     margin: 0 auto;
     padding: 1.5vh 1.5vh;
-    
+    position: relative;
+
     min-width: 500px;
     max-width: 1080px;
 }
@@ -44,6 +41,8 @@ content{
 .header-menu #profilePic{
     width: 150px; height: 4vh;
     min-width: 50px; min-height: 50px;
+    position: absolute;
+    left: 0px;
 }
 
 #profilePic>img{
@@ -55,13 +54,17 @@ content{
 .logo-position img{
     height: 4vh;
     min-height: 50px;
+    position: absolute;
+    left: 50%;
 }
 
 .login-box{
+    position: absolute;
+    right: 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 150px; height: 4vh;
+    width: 80px; height: 4vh;
 }
 .login-box a{
 	text-decoration : none;

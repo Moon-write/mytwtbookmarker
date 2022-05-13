@@ -16,4 +16,9 @@ public class UserDao {
 		
 		return sqlSession.selectOne("user.selectOneUser", user);
 	}
+
+	public int insertUser(User u) {
+		
+		return sqlSession.insert("user.insertUser", u);
+	}
 }

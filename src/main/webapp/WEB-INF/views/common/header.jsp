@@ -14,12 +14,23 @@
 <link href="../../../resources/css/header-m.css" rel="stylesheet">
 <header>
     <div class="header-menu">
-        <div id="profilePic"><img src="../../../resources/img/common/돼끼.png"></div>
+		<c:if test="${not empty sessionScope.loginUser.userId }">
+        <div id="profilePic">
+	        <img src="../../../resources/upload/user/${sessionScope.loginUser.userProfile }">
+        </div>
+		</c:if>
         <div class="logo-position"><a href="/"><img src="../../../resources/img/common/logo.png"></a></div>
         <div class="login-box">
-            <span class="material-symbols-outlined"><a href="/joinStep1.do">person_add</a></span>
-            <span class="material-symbols-outlined login-btn">login</span>
-            <span class="material-symbols-outlined">bookmark_add</span>
+        	<c:choose>
+        		<c:when test="${empty sessionScope.loginUser.userId}">
+		            <span class="material-symbols-outlined"><a href="/joinStep1.do">person_add</a></span>
+		            <span class="material-symbols-outlined login-btn">login</span>       		
+        		</c:when>
+        		<c:when test="${not empty sessionScope.loginUser.userId}">
+		        	<span class="material-symbols-outlined login-btn"><a href="/logout.do">logout</a></span>        		
+		            <span class="material-symbols-outlined">bookmark_add</span>
+        		</c:when>
+        	</c:choose>
         </div>
     </div>
 </header>
@@ -38,7 +49,7 @@
 </div>
 <div class="navi-menu">
     <div class="navi-profile">
-        <div id="profilePic"><img src="../../../resources/img/common/돼끼.png"></div>
+        <div id="profilePic"><img src="../../../resources/upload/user/${sessionScope.loginUser.userProfile }"></div>
         <span id="profileName">이름</span>
         <span class="material-symbols-outlined naviClose-btn">undo</span>
     </div>

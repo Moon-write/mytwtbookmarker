@@ -10,5 +10,19 @@
   			USER_EMAIL AS USEREMAIL,
   			USER_PROFILE AS USERPROFILE
   			FROM USER_TBL WHERE USER_ID=#{userId}
+  			<if test="userPw!=null">
+  				AND USER_PW=#{userPw}
+  			</if>
   	</select>
+  	
+  	<insert id="insertUser" parameterType="user">
+  		INSERT INTO USER_TBL VALUES(
+  			USER_SEQ.NEXTVAL,
+  			#{userId},
+  			#{userPw},
+  			#{userName},
+  			#{userEmail},
+  			#{userProfile}
+  		)
+  	</insert>
 </mapper>
