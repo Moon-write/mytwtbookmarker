@@ -14,6 +14,7 @@
     <content>
         <div class="div-content">
             <div class="div1-box quick-insert">
+                <form action="/insertBookmark.do" method="post">
                 <div class="title">빠른 북마크 등록</div>
                 <div class="insert-box">
                     <select class="form-select">
@@ -30,7 +31,10 @@
                         </div>
                         <div class="content-text">
                         </div>
-                        <div class="content-date">
+                        <div>
+                            <span class="content-date">
+                            </span>
+                            <a class="gotolink">원본 보기</a>
                         </div>
                     </div>
                     <div class="media-wrap">
@@ -39,7 +43,9 @@
                 </div>
                 <div class="insert-button d-grid gap-2">
                     <input type="submit" class="btn btn-outline-light" value="북마크 등록">
-                </div>                
+                    <input type="reset" class="btn btn-primary" value="초기화">
+                </div>            
+            </form>
             </div>
         </div>
     </content>

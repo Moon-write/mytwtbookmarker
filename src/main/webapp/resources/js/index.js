@@ -1,7 +1,16 @@
 $("input[name=markLink]").on("change",function(){
     twtInit();
     // 입력된 링크
-    const link = $(this).val();
+    const copiedlink = $(this).val();
+    const paramIndex = copiedlink.lastIndexOf("?");
+    let link;
+    if(paramIndex>0){
+        link = copiedlink.subString(0,paramIndex);
+    }else{
+        link = copiedlink;
+    }
+    
+    $(".gotolink").attr("href",link);
 
     const part = link.split("/");
     // 링크 분해
@@ -10,9 +19,7 @@ $("input[name=markLink]").on("change",function(){
     $(".preview-twt").css("display","flex");
 
     $(".content-id").text("@"+part[3]);
-
-    const dateLine = date.substring(0,10)+"<a href='"+link+"' class='gotolink' target='_new'>원본 보기</a>";
-    $(".content-date").html(dateLine);
+    
     // 트윗내용 불러오기
     loadTwt(part[5], 1);
 
@@ -44,61 +51,95 @@ function loadTwt(id, round){
         data : {
             "ids" : id
         },
-        success : function(result){    
-            console.log("여기는?");
-            console.log(result);        
+        success : function(result){      
+            console.log(result);
             if(round==1){
-                attachMedia(result);
+                if(result.errors!=null){
+                    twtLoadError();
+                }            
+                const text = result.data[0].text.replace('\n','<br>');
+                
+                $(".content-text").html(text);
+                
+                const date = result.data[0].created_at;
+                const dateLine = date.substring(0,10);
+                $(".content-date").append(dateLine);
+            
+                if(result.includes!=null){
+                    const type =result.includes.media[0].type;
+                    const length = result.includes.media.length;
+                    let mediaTag = "";  
+                    if(type=="photo"){
+                        for(let i=0;i<result.includes.media.length;i++){
+                            mediaTag = mediaTag + " <img class='mediaBox' src='"+result.includes.media[i].url+"'>";
+                        }                    
+                    }else if(type=="video"){
+                        mediaTag = "<img class='mediaBox' src='"+result.includes.media[0].preview_image_url+"'>";
+                        $(".videoBadge").text("play_circle");
+                    }else if(type=="animated_gif"){
+                        mediaTag = "<img class='mediaBox' src='"+result.includes.media[0].preview_image_url+"'>";
+                        $(".videoBadge").text("gif_box");
+                    }
+                    $(".media-wrap").html(mediaTag);
+            
+                    if(length==2){
+                        $(".media-wrap").addClass("pic-two");
+                    }else if(length==3){
+                        $(".media-wrap").addClass("pic-three");
+                    }else if(length==4){
+                        $(".media-wrap").addClass("pic-four");
+                    } 
+                }
+                if(result.data[0].referenced_tweets!=null&&result.data[0].referenced_tweets[0].type=='quoted'){
+                    loadTwt(result.data[0].referenced_tweets[0].id, 2);
+                }               
             }else if(round==2){
+                let quoteTag = "";
+                if(result.errors!=null){
+                    quoteTag = "<div class='quoteTwt'>삭제되었거나 비공개된 계정입니다!</div>";
+                }else{
+                    const text = result.data[0].text.replace('\n','<br>');
+                    const date = result.data[0].created_at.substring(0,10);
+                    // const dateLine = date.substring(0,10);
+                    let mediaTag = "";
 
-            }
+                    if(result.includes!=null){
+                        const type = result.includes.media[0].type;
+                        const length = result.includes.media.length;
+
+                        if(type=="photo"){
+                            for(let i=0;i<result.includes.media.length;i++){
+                                mediaTag = mediaTag + " <img class='quoteTwt-media' src='"+result.includes.media[i].url+"'>";
+                            }                    
+                        }else if(type=="video"){
+                            mediaTag = "<img class='quoteTwt-media' src='"+result.includes.media[0].preview_image_url+"'>"+"<span class='material-symbols-outlined quoteBadge'>play_circle</span>";
+                        }else if(type=="animated_gif"){
+                            mediaTag = "<img class='quoteTwt-media' src='"+result.includes.media[0].preview_image_url+"'>"+"<span class='material-symbols-outlined quoteBadge'>gif_box</span>";
+                        }
+                    }// 첨부미디어 있을때 조건문 마감
+                    quoteTag = "<div class='quoteTwt'>"
+                                    +"<div class='quoteTwt-text'>"
+                                        +text
+                                        +"<br><br><span class='quoteTwt-date'>"+date+"</span>"
+                                    +"</div>"
+                                    +"<div class='quoteTwt-media'>"
+                                        +mediaTag
+                                    +"</div>"
+                                +"</div>";
+                    $(".media-wrap").append(quoteTag);
+
+                    if(length==2){
+                        $(".quoteTwt-media").addClass("pic-two");
+                    }else if(length==3){
+                        $(".quoteTwt-media").addClass("pic-three");
+                    }else if(length==4){
+                        $(".quoteTwt-media").addClass("pic-four");
+                    }
+                }// 에러안나는 조건문 마감
+            }            
         },
         error:function(){
             twtLoadError();
         }
-    })
-}
-
-function attachMedia(result){
-
-    if(result.errors!=null){
-        twtLoadError();
-    }
-
-    const text = result.data[0].text.replace('\n','<br>');
-    
-    $(".content-text").html(text);
-    
-    const date = result.data[0].created_at;
-
-    console.log("주목!!!"+result.data[0].referenced_tweets[0]);
-
-    if(result.includes!=null){
-        const type =result.includes.media[0].type;
-        const length = result.includes.media.length;
-        let mediaTag = "";  
-        if(type=="photo"){
-            for(let i=0;i<result.includes.media.length;i++){
-                mediaTag = mediaTag + " <img class='mediaBox' src='"+result.includes.media[i].url+"'>";
-            }                    
-        }else if(type=="video"){
-            mediaTag = "<img class='mediaBox' src='"+result.includes.media[0].preview_image_url+"'>";
-            $(".videoBadge").text("play_circle");
-        }else if(type=="animated_gif"){
-            mediaTag = "<img class='mediaBox' src='"+result.includes.media[0].preview_image_url+"'>";
-            $(".videoBadge").text("gif_box");
-        }
-        $(".media-wrap").html(mediaTag);
-
-        if(length==2){
-            $(".media-wrap").addClass("pic-two");
-        }else if(length==3){
-            $(".media-wrap").addClass("pic-three");
-        }else if(length==4){
-            $(".media-wrap").addClass("pic-four");
-        }                
-
-    }else if(result.data[0].referenced_tweets[0].type=="quoted"){
-        console.log("여기");
-    }
+    });
 }

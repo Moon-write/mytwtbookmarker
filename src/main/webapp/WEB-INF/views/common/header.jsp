@@ -58,7 +58,7 @@
     </div>
     <ul class="navi-list">
         <li><a href="#">북마크 등록</a></li>
-        <li><a href="#">내 북마크 리스트 관리</a></li>
+        <li><a href="/gotoList.do">내 북마크 리스트 관리</a></li>
         <li><a href="#">북마크 리스트 검색</a></li>
         <li><a href="#">로그아웃</a></li>
     </ul>

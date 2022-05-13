@@ -15,7 +15,7 @@
     background-color: #fff;
     color: black;
     padding: 25px;
-    width: 90%; height: 290px;
+    width: 90%;
     margin: 0 auto;
     position: relative;
 }
@@ -71,9 +71,34 @@
 }
 
 .gotolink{
-    margin-left: 20px;
     color: #1d9bf0;
     text-decoration: none;
+    font-size: 0.8em;
+}
+.quoteTwt{
+    padding: 15px;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #1d9bf0;
+}
+.quoteTwt-text{
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+.quoteTwt-media{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.quoteTwt-media>img{
+    height: 208px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.quoteBadge{
+    position: absolute;
+    top: 10px; right: 10px;
+    color: #fff;
 }
 
 /*웹 보기*/
