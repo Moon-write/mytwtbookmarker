@@ -22,11 +22,10 @@ $("input[name=markLink]").on("change",function(){
     
     // 트윗내용 불러오기
     loadTwt(part[5], 1);
-
 });
 
 function twtInit(){
-    $(".content-id").html();
+    $(".content-id").html("");
     $(".content-text").html("");
     $(".content-date").html("");
     $(".videoBadge").text("");
@@ -34,6 +33,8 @@ function twtInit(){
     $(".media-wrap").removeClass("pic-two");
     $(".media-wrap").removeClass("pic-three");
     $(".media-wrap").removeClass("pic-four");
+    $("a.gotolink").attr("href","/");
+    $(".preview-twt").slideUp();
 }
 
 
@@ -143,3 +144,4 @@ function loadTwt(id, round){
         }
     });
 }
+
