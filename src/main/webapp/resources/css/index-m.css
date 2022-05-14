@@ -1,0 +1,172 @@
+.quick-insert{
+	color: #fff;
+    background-color: #1d9bf0;
+}
+
+.insert-box{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px ;
+}
+.preview-twt{
+    display: none;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #fff;
+    color: black;
+    padding: 25px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.content-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+    max-width: 60%;
+}
+.content-id{
+    font-weight: 900;
+    font-size: 1.1em;
+}
+.content-text{
+    font-size: 1em;
+    text-overflow: ellipsis;
+    overflow: auto;
+}
+.content-date{
+    font-size: 0.8em;
+    color: lightslategrey
+}
+.media-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.pic-two>img{
+    width: 49%;
+}
+.pic-three>img{
+    width: 33%;
+}
+.pic-four>img{
+    width: 49%;
+    height: 118px;
+}
+
+.videoBadge{
+    z-index: 1;
+    position: absolute;
+    top: 40px; right: 40px;
+    color: white;
+}
+.mediaBox{ /*이미지임*/
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gotolink{
+    color: #1d9bf0;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+.quoteTwt{
+    padding: 15px;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #1d9bf0;
+}
+.quoteTwt-text{
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+.quoteTwt-media{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.quoteTwt-media>img{
+    height: 208px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.quoteBadge{
+    position: absolute;
+    top: 10px; right: 10px;
+    color: #fff;
+}
+
+/*웹 보기*/
+@media (hover: hover) and (pointer: fine) { 
+    *{
+        color: aqua;
+    }
+    select.form-select{
+        width: 38%;
+        margin-right: 1%;
+    }
+    input[name=markLink]{
+        width: 60%;
+        margin-left: 1%;
+    }    
+    .insert-button input[type=submit] {
+        margin-top: 50px;
+        height: 60px;
+    }
+
+}
+/*모바일 보기*/
+
+@media screen and (hover: hover) and (pointer: coarse) { /*모바일*/
+*{
+    color: red;
+}
+    select.form-select, input[name=markLink]{
+        width: 100%;
+        height: 80px;
+        margin-bottom: 50px;
+        font-size: 2.5em;
+    }
+    .insert-button input[type=submit] {
+        margin-top: 2vh;
+        height: 100px;
+        font-size: 2.5em;
+    }
+}
+
+/*패드 보기*/
+
+@media screen and (hover: none) and (pointer: coarse) { /*모바일*/
+    *{
+        color:blue;
+    }
+        select.form-select, input[name=markLink]{
+            width: 100%;
+            height: 80px;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+        }
+        .insert-button input[type=submit] {
+            margin-top: 2vh;
+            height: 100px;
+            font-size: 2.5em;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+

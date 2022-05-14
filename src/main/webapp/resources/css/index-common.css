@@ -1,0 +1,82 @@
+/*인덱스 요소 중 공통사용*/
+header{
+    border-bottom: 1px solid #ccc;
+    color: #0f1419;
+}
+/*빠른 북마크 등록 기능*/
+.quick-insert{
+	color: #fff;
+    background-color: #1d9bf0;
+}
+.insert-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.preview-twt{
+    display: none;
+    justify-content: space-between;
+    background-color: #fff;
+    color: black;
+    margin: 0 auto;
+    position: relative;
+}
+.content-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content-id{
+    font-weight: 900;
+}
+.content-date{
+    color: lightslategrey;
+}
+.media-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    width: max-content;
+}
+.pic-two>img{
+    width: 49%;
+}
+.pic-three>img{
+    width: 33%;
+}
+.pic-four>img{
+    width: 49%;
+}
+.videoBadge{
+    z-index: 1;
+    position: absolute;
+    color: white;
+}
+.mediaBox{ /*이미지임*/
+    width: 100%;
+    object-fit: cover;
+}
+.gotolink{
+    color: #1d9bf0;
+    text-decoration: none;
+}
+.quoteTwt{
+    display: flex;
+    border: 1px solid #1d9bf0;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+.quoteTwt-media{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+}
+.quoteTwt-media>img{
+    object-fit: cover;
+}
+.quoteBadge{
+    position: absolute;
+    color: #fff;
+}

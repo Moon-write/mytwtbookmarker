@@ -10,14 +10,16 @@
 <!--구글폰트-->
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <!-- 헤더 CSS -->
-<link href="../../../resources/css/header.css" rel="stylesheet">
+<link href="../../../resources/css/common.css" rel="stylesheet">
+<link href="../../../resources/css/header-common.css" rel="stylesheet">
 <link href="../../../resources/css/header-m.css" rel="stylesheet">
+<link href="../../../resources/css/header-web.css" rel="stylesheet">
 <header>
     <div class="header-menu">
 		<c:if test="${not empty sessionScope.loginUser.userId }">
-        <div id="profilePic">
-	        <img src="../../../resources/upload/user/${sessionScope.loginUser.userProfile }">
-        </div>
+	        <div id="profilePic">
+		        <img src="../../../resources/upload/user/${sessionScope.loginUser.userProfile }">
+	        </div>
 		</c:if>
         <div class="logo-position"><a href="/"><img src="../../../resources/img/common/logo.png"></a></div>
         <div class="login-box">
@@ -50,7 +52,7 @@
 <div class="navi-menu">
     <div class="navi-profile">
         <div id="profilePic"><img src="../../../resources/upload/user/${sessionScope.loginUser.userProfile }"></div>
-        <span id="profileName">이름</span>
+        <span id="profileName">${sessionScope.loginUser.userName }</span>
         <span class="material-symbols-outlined naviClose-btn">undo</span>
     </div>
     <div class="navi-button d-grid gap-2">

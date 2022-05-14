@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>My Twitter BookMarker</title>
-<link href="../../../resources/css/index.css" rel="stylesheet">
+<link href="../../../resources/css/index-web.css" rel="stylesheet">
+<link href="../../../resources/css/index-common.css" rel="stylesheet">
 <script type='text/javascript' src='http://code.jquery.com/jquery-3.6.0.js'></script>
 </head>
 <body>    
@@ -41,15 +42,19 @@
                     </div>
                     <span class="material-symbols-outlined videoBadge" style="font-size:50px;"></span>
                 </div>
-                <div class="insert-button d-grid gap-2">
+                <div class="insertBtn">
+                    <input type="reset" onclick="twtInit()"class="btn btn-outline-light" value="초기화">
                     <input type="submit" class="btn btn-outline-light" value="북마크 등록">
-                    <input type="reset" class="btn btn-primary" value="초기화">
-                </div>            
+                </div>
             </form>
             </div>
         </div>
     </content>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script src="/resources/js/index.js"></script>
+    <script src="/resources/js/copyTwt.js"></script>
+    <script>
+        // ajax로 로그인한 아이디의 리스트 정보 불러오기
+        
+    </script>
 </body>
 </html>

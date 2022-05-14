@@ -1,0 +1,30 @@
+/*[모바일/패드] 공통*/
+body{
+    margin: 0px; padding: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+content{
+    flex-grow: 1;
+}
+.title{
+    text-align: center;
+    font-weight: 900;   
+}
+.div-content{
+    min-width: 720px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 5em;
+    margin-bottom: 80px;
+}
+
+.div1-box{
+	padding: 50px;
+    height: fit-content;
+}
