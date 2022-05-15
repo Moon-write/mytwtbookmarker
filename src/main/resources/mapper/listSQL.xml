@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="list">
+  <insert id="insertNewList" parameterType="l">
+  	INSERT INTO LIST_TBL VALUES(
+	  								LIST_SEQ.NEXTVAL,
+	  								#{userNo},
+	  								#{listName},
+	  								#{listOpen},
+	  								#{listProfile}
+  								)
+  	<selectKey resultType="int" order="AFTER" keyProperty="listNo">
+  		SELECT MAX(LIST_NO) FROM LIST_TBL
+  	</selectKey>  
+  </insert>
   
+  <insert id="insertListKeyword" parameterType="map">
+  	INSERT INTO KEYWORD_TBL VALUES(
+  									KEYWORD_SEQ.NEXTVAL,
+  									#{listNo},
+  									#{keyword}
+  								)
+  </insert>
 </mapper>

@@ -12,6 +12,7 @@
 </head>
 <body>    
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<h1>${msg}</h1>
     <content>
         <div class="div-content">
             <div class="div1-box quick-insert">
@@ -47,6 +48,15 @@
                     <input type="submit" class="btn btn-outline-light" value="북마크 등록">
                 </div>
             </form>
+            </div>
+            <div class="div1-box">
+            	<div class="title">나의 북마크</div>
+            	<select class="form-select">
+            		<option selected>리스트 선택</option>
+            	</select>
+            	<div class="keywordList">
+            		
+            	</div>
             </div>
         </div>
     </content>

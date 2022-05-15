@@ -14,7 +14,8 @@ import lombok.AllArgsConstructor;
 @Data
 public class List {
 	private int listNo;
-	private String userId;
+	private int userNo;
 	private String listName;
 	private int listOpen;
+	private String listProfile;
 }

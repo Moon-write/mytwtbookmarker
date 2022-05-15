@@ -105,13 +105,12 @@ public class UserController {
 		User u = service.selectOneUser(user);
 		
 		if(u==null) {
-			// 왜 알람이 안 뜰까...?
-			System.out.println("여기오니?");
-			model.addAttribute("msg", "<script>alert('아이디와 비밀번호를 다시 확인해주세요!');</script>");
+			model.addAttribute("msg",1);
+			return "common/gotomain";
 		}else {
 			session.setAttribute("loginUser", u);
+			return "redirect:/";
 		}
-		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/logout.do")

@@ -6,5 +6,8 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.github.user.model.vo.User" alias="user"/>
+		<typeAlias type="com.github.list.model.vo.List" alias="l"/>
+		<typeAlias type="com.github.list.model.vo.Keyword" alias="keyword"/>
+		<typeAlias type="com.github.list.model.vo.ListFavorite" alias="favorite"/>
 	</typeAliases>
 </configuration>

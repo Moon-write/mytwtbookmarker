@@ -30,7 +30,7 @@
         		</c:when>
         		<c:when test="${not empty sessionScope.loginUser.userId}">
 		        	<span class="material-symbols-outlined login-btn"><a href="/logout.do">logout</a></span>        		
-		            <span class="material-symbols-outlined">bookmark_add</span>
+		            <span class="material-symbols-outlined"><a href="#">bookmark_add</a></span>
         		</c:when>
         	</c:choose>
         </div>

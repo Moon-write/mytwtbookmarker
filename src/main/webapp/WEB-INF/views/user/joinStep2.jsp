@@ -7,6 +7,14 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link href="../../../resources/css/joinStep2.css" rel="stylesheet">
+<style>
+	.profilePicWindow{
+		width: 100px;
+	}
+	.profilePicWindow>img{
+		width: 100%;
+	}
+</style>
 </head>
 <body>    
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -49,12 +57,11 @@
                 		</div>
            				
            				
-           				
 						<label for="profilePic">프로필 사진</label>
 						<label for="labelUpload"><div class="btn btn-sm btn-primary">업로드</div></label>
-						<div class="btn btn-sm btn-secondary" onclick="cancelImg(); return false;">취소</div>
-						<input type="file" id="labelUpload" onchange="loadImg(this); return false;" accept=".jpg,.png,.jpeg" style="display: none;" name="upPic">
+						<button class="btn btn-sm btn-secondary" onclick="cancelImg(); return false;">취소</button>
 						<div class="profilePicWindow"><img id="img-view"></div>
+						<input type="file" id="labelUpload" onchange="loadImg(this); return false;" accept=".jpg,.png,.jpeg" style="display: none;" name="upPic">
 						
 					</div>
 					<div class="agreebox"> 
