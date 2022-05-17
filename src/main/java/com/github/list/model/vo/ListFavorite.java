@@ -13,4 +13,7 @@ import lombok.NoArgsConstructor;
 public class ListFavorite {
 	private int listNo;
 	private int userNo;
+	
+	// 추가요소
+	private List list;
 }

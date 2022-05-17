@@ -1,14 +1,20 @@
 package com.github.bookmark.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.github.bookmark.model.service.BookmarkService;
 import com.github.bookmark.model.service.TweetService;
+import com.github.list.model.service.ListService;
+import com.github.list.model.vo.List;
+import com.github.user.model.vo.User;
 
 @Controller
 public class BookmarkController {
@@ -17,6 +23,8 @@ public class BookmarkController {
 	private BookmarkService service;
 	@Autowired
 	private TweetService twtService;
+	@Autowired
+	private ListService lService;
 	
 	@ResponseBody
 	@RequestMapping(value="/twt.do", produces="application/text; charset=utf8")
@@ -33,4 +41,14 @@ public class BookmarkController {
 		return result;
 	}
 	
+	@RequestMapping(value="/gotoNewB.do")
+	public String gotoNewBookmark(@SessionAttribute(required=false) User loginUser, Model model ) {
+		
+		// 내가 소지한 리스트 목록 불러오기
+		ArrayList<List> list = lService.selectMyList(loginUser.getUserNo());
+		
+		model.addAttribute("list", list);
+		
+		return "bookmark/insertBookmark";
+	}
 }

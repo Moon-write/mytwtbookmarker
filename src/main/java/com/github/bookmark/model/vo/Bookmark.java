@@ -1,5 +1,7 @@
 package com.github.bookmark.model.vo;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -18,4 +20,6 @@ public class Bookmark {
 	private int listNo;
 	private String markDetail;
 	
+	// 추가요소
+	private ArrayList<String> keyword;
 }

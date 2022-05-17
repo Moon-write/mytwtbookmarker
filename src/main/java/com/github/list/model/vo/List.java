@@ -1,5 +1,7 @@
 package com.github.list.model.vo;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -18,4 +20,7 @@ public class List {
 	private String listName;
 	private int listOpen;
 	private String listProfile;
+	
+	// 추가요소
+	private ArrayList<String> listKeyword;
 }

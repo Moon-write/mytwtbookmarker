@@ -105,7 +105,7 @@ public class UserController {
 		User u = service.selectOneUser(user);
 		
 		if(u==null) {
-			model.addAttribute("msg",1);
+			model.addAttribute("msg","아이디와 비밀번호가 일치하지 않습니다!");
 			return "common/gotomain";
 		}else {
 			session.setAttribute("loginUser", u);

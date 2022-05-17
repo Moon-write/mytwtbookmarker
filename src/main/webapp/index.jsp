@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,11 @@
 </head>
 <body>    
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h1>${msg}</h1>
+	<c:if test="${not empty msg}">
+		<script>
+			alert('${msg}');
+		</script>
+	</c:if>
     <content>
         <div class="div-content">
             <div class="div1-box quick-insert">

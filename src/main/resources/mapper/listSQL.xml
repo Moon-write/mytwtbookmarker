@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="list">
-  <insert id="insertNewList" parameterType="l">
+	<select id="selectMyList" parameterType="int" resultType="l">
+		SELECT
+			LIST_NO 	AS listNo,
+			USER_NO 	AS userNo,
+			LIST_NAME	AS listName,
+			LIST_OPEN	AS listOpen,
+			LIST_PROFILE AS listProfile
+		FROM LIST_TBL 
+		WHERE USER_NO = #{userNo}
+	</select>
+	
+	<select id="selectOneList" parameterType="int" resultType="l">
+		SELECT
+			LIST_NO 	AS listNo,
+			USER_NO 	AS userNo,
+			LIST_NAME	AS listName,
+			LIST_OPEN	AS listOpen,
+			LIST_PROFILE AS listProfile
+		FROM LIST_TBL 
+		WHERE LIST_NO = #{listNo}
+	</select>
+	
+	<select id="selectListKeyword" parameterType="int" resultType="string">
+		SELECT
+			KEYWORD_NAME AS listKeyword
+			FROM KEYWORD_TBL WHERE LIST_NO=#{listNo}
+	</select>
+
+
+  <insert id="insertNewList" parameterType="l" >
   	INSERT INTO LIST_TBL VALUES(
 	  								LIST_SEQ.NEXTVAL,
 	  								#{userNo},

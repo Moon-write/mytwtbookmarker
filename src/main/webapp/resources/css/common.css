@@ -31,7 +31,7 @@ content{
     }
 
     .div1-box{
-        padding: 100px;
+        padding: 50px 100px;
         height: fit-content;
     }
 }
