@@ -17,7 +17,7 @@
 		SELECT KEYWORD_NAME FROM BOOKMARK_KEYWORD JOIN KEYWORD_TBL USING (KEYWORD_NO) WHERE MARK_NO= #{markNo}	
 	</select>
 
-	<insert id="insertBmark" parameterType="b">
+	<insert id="insertBookmark" parameterType="b">
 		INSERT INTO BOOKMARK_TBL VALUES(
 					BOOKMARK_SEQ.NEXTVAL,
 					#{userNo},

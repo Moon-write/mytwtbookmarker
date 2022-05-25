@@ -39,5 +39,6 @@ public class ListDao {
 		List list = sqlSession.selectOne("list.selectOneList", listNo);
 		return list;
 	}
+
 	
 }

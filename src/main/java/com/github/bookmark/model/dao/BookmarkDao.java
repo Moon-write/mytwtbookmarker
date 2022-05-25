@@ -25,4 +25,9 @@ public class BookmarkDao {
 		List<String> bKeyword = sqlSession.selectList("bookmark.selectBKeyword", markNo);
 		return (ArrayList<String>) bKeyword;
 	}
+
+	public int insertBookmark(Bookmark b) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("bookmark.insertBookmark", b);
+	}
 }

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Component
 public class Bookmark {
 	private int markNo;
-	private int userNO;
+	private int userNo;
 	private String markLink;
 	private String markDate;
 	private int listNo;

@@ -56,5 +56,10 @@ public class ListService {
 		ArrayList<String> keyword = dao.selectListKeyword(listNo);
 		return keyword;
 	}
+
+	public ArrayList<List> getLists(int userNo) {
+		
+		return dao.selectMyList(userNo);
+	}
 	
 }

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
@@ -108,10 +109,9 @@ public class ListController {
 	@RequestMapping(value="/viewList.do")
 	public String viewList(int listNo,  Model model) {
 		List list = service.selectOneList(listNo);
-		ArrayList<Bookmark> bList = bService.selectBList(listNo);
 		
 		model.addAttribute("list", list);
-		model.addAttribute("bList", bList);
+
 		return "list/viewList";
 	}
 	
@@ -121,5 +121,28 @@ public class ListController {
 		ArrayList<String> keyword = service.selectListKeyword(listNo);
 		
 		return new Gson().toJson(keyword);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getListBookmarks.do", produces = "application/json; charset=utf-8")
+	public String getListBookmarks(int listNo) {
+		ArrayList<Bookmark> list = bService.selectBList(listNo);
+		
+		return new Gson().toJson(list);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getListKBookmarks.do", produces="application/json; charset=utf-8")
+	public String getListKBookmarks(@RequestParam(value="listNo") int listNo, @RequestParam(value="keyword") java.util.List<String> keyword) {
+		
+		System.out.println(keyword);
+		
+		return "1";		
+	}
+	@ResponseBody
+	@RequestMapping(value="/getLists.do", produces="application/json; charset=utf-8")
+	public String getLists(int userNo) {
+		ArrayList<List> list = service.getLists(userNo);
+		return new Gson().toJson(list);
 	}
 }

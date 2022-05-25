@@ -25,6 +25,11 @@ public class BookmarkService {
 		}
 		return bList;
 	}
+
+	public int insertBookmark(Bookmark b) {
+		// TODO Auto-generated method stub
+		return dao.insertBookmark(b);
+	}
 	
 	
 }

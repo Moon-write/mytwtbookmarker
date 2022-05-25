@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.github.bookmark.model.service.BookmarkService;
 import com.github.bookmark.model.service.TweetService;
+import com.github.bookmark.model.vo.Bookmark;
 import com.github.list.model.service.ListService;
 import com.github.list.model.vo.List;
 import com.github.user.model.vo.User;
@@ -50,5 +51,14 @@ public class BookmarkController {
 		model.addAttribute("list", list);
 		
 		return "bookmark/insertBookmark";
+	}
+	
+	@RequestMapping(value="/quickInsertBookmark.do")
+	public String quickInsertBookmark(@SessionAttribute(required=false) User loginUser, Bookmark b) {
+		b.setUserNo(loginUser.getUserNo());
+		b.setMarkDetail("");
+		int result = service.insertBookmark(b);
+		
+		return "redirect:/";
 	}
 }

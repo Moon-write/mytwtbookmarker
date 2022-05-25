@@ -15,6 +15,7 @@
 <link href="../../../resources/css/header-m.css" rel="stylesheet">
 <link href="../../../resources/css/header-web.css" rel="stylesheet">
 <header>
+	<input type="hidden" id="userNo" value="${sessionScope.loginUser.userNo}">
     <div class="header-menu">
 		<c:if test="${not empty sessionScope.loginUser.userId }">
 	        <div id="profilePic">
